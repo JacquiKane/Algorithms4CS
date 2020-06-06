@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="algbinsearch.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Algorithms, Binary Search</title>
+    <style>
+        .boldface {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .boldfaceinfo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            font-size: large;
+        }
+        
+        .boldfaceemphasis {
+            font-size: x-large;
+        }
+        
+        .imgAni {
+            border: 5px dashed goldenrod;
+            padding: 5px;
+            width: 500px;
+            height: 200px;
+        }
+        
+        .buttonsize {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10 boldfont">
+                <h1 class="boldface">
+                    Find Value In Sorted Array, with <span class="boldfaceemphasis">Binary Search</span>
+                </h1>
+                <p>Array must be sorted! Let's use an example. Below, the array is called nums. We scan the array, looking for a value of 27.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                <img id="array" class="imgAni" src="images/arrbinsearch0.png" alt="Binary Search" />
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#binarysearchcode" aria-expanded="Link to class header">
+                            Code >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#binarysearchefficiency" aria-expanded="Link to class header">
+                            Efficiency >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#binarysearchobjects" aria-expanded="Link to class header">
+                            Objects >>
+                        </button>
+                    </div>
+
+                </section>
+
+
+            </div>
+            <div class="col-md-7">
+                <br>
+                <div id="binarysearchcode" class="collapse mb-3">
+                    <h4 class="boldface">Sample Code, Assuming Array Of Ints - nums</h4>
+                    <pre>
+
+        int low = 0;
+        int high = nums.length-1;
+        int middle = (low+high)/2;
+                        
+        while (nums[middle] != target && low <= high) {
+            if (target < nums[middle])
+                high = middle - 1;
+            else {
+                low = middle + 1;
+                middle = (low + high) / 2;
+               }  
+            if (nums[middle] == target)
+                // Indicate found
+            else
+                // Indicate not found
+            }
+                        
+                </pre>
+                </div>
+
+
+
+                <div id="binarysearchefficiency" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">How Efficient Is Binary Search?</h4>
+                    <div id="efficiency">
+                        <p>We say <i>of the order of</i>, designated by <i>O(...)</b>, to describe the worst case in terms of comparisons. This is termed big O representation. 
+                           
+                        The best case is described using big Omega notation, &Omega;(...).</p>
+                    <p>The array has to be sorted before binary search can be used. This may take away from any efficiency gains!
+                        In the best case, the item is found right away, after a single array split. In this case, the best case scenario is described as 
+                        big Omega of 1, &Omega;(1). In the worst case, we have to keep splitting the array, and end up with approximately log n comparisons. 
+                        This is designated using big O notation, as O(log n).
+                        </p>
+                       
+                </div>
+                </div>
+
+                <div id="binarysearchobjects" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">How About Sorting Objects?</h4>
+                    <p>The same algorithm applies to arrays containing objects. If you have a sorted array of SoccerPlayer objects (sorted based on a specific attribute)
+                         and you need to find a specific player, then you would access the SoccerPlayer object's attribute, and compare with the target
+                        value.
+                    </p>
+                </div>
+                
+                <div>
+                    <br>
+                    <h4 class="boldfaceinfo"><ul>
+                        <li>Can you create the code corresponding to this algorithm? </li>
+                        <li>How efficient do you think the algorithm is?</li>
+                        <li> Can you use the same algorithm with objects?</li>
+                    </ul></h4>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
